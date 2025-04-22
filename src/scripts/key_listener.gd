@@ -6,13 +6,18 @@ extends Sprite2D
 var key_moving_queue = []
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed(key_name):
-		create_moving_key()
 	
 	if key_moving_queue.size() > 0:
 		if key_moving_queue.front().has_passed:
 			key_moving_queue.pop_front()
-			print("popped")
+	
+	if Input.is_action_just_pressed(key_name):
+		var key_to_pop = key_moving_queue.pop_front()
+	
+		var distance_from_passed = abs(key_to_pop.pass_limit - key_to_pop.global_position.x)		
+		print(distance_from_passed)
+	
+		key_to_pop.queue_free()
 
 func create_moving_key():
 	var km_inst = key_moving.instantiate()
