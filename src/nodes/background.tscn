@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://yopk35fnni34"]
+
+[ext_resource type="Texture2D" uid="uid://wdxlmogungk2" path="res://assets/bluesky.png" id="1_cwo56"]
+[ext_resource type="Texture2D" uid="uid://28i76jearnn1" path="res://assets/cloudsback.png" id="2_gyn1g"]
+[ext_resource type="Script" uid="uid://4nsovlyu8uvl" path="res://src/scripts/background.gd" id="2_s3qma"]
+[ext_resource type="Texture2D" uid="uid://c3dvc3ljjat3q" path="res://assets/mounts.png" id="3_56fkv"]
+[ext_resource type="Texture2D" uid="uid://devc4w0vhmhx0" path="res://assets/cloudsfront.png" id="5_fba8e"]
+[ext_resource type="Texture2D" uid="uid://br777c2xu7kj6" path="res://assets/hillsveryfront.png" id="6_lr678"]
+
+[node name="Background" type="Node2D"]
+
+[node name="BlueSky" type="Sprite2D" parent="."]
+position = Vector2(6.00001, 21)
+scale = Vector2(1.05687, 1.09333)
+texture = ExtResource("1_cwo56")
+script = ExtResource("2_s3qma")
+
+[node name="BGClouds" type="Sprite2D" parent="."]
+position = Vector2(50, 65)
+texture = ExtResource("2_gyn1g")
+script = ExtResource("2_s3qma")
+speed = 0.2
+
+[node name="Mountains" type="Sprite2D" parent="."]
+position = Vector2(2, 10)
+scale = Vector2(1.05778, 1.05778)
+texture = ExtResource("3_56fkv")
+script = ExtResource("2_s3qma")
+speed = 0.4
+
+[node name="FGClouds" type="Sprite2D" parent="."]
+position = Vector2(-19, -28)
+scale = Vector2(0.827778, 0.827778)
+texture = ExtResource("5_fba8e")
+script = ExtResource("2_s3qma")
+speed = 0.6
+
+[node name="Hills" type="Sprite2D" parent="."]
+position = Vector2(25, -60)
+scale = Vector2(1.09778, 1.09778)
+texture = ExtResource("6_lr678")
+script = ExtResource("2_s3qma")
+speed = 0.5
