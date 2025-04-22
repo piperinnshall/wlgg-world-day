@@ -15,7 +15,6 @@ func _init():
 
 func _process(delta: float) -> void:
 	global_position += Vector2(-move_speed,  0)
-	
 	if global_position.x < pass_limit and not $Timer.is_stopped():
 		# print($Timer.wait_time - $Timer.time_left)
 		$Timer.stop()

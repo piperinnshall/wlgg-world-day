@@ -21,6 +21,8 @@ func _process(delta: float) -> void:
 
 func create_moving_key():
 	var km_inst = key_moving.instantiate()
+	km_inst.z_as_relative = false
+	km_inst.z_index = 30
 	get_tree().get_root().call_deferred("add_child", km_inst)
 	km_inst.setup(frame + 4)
 	
