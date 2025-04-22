@@ -8,3 +8,8 @@ texture = ExtResource("1_610d0")
 hframes = 4
 vframes = 3
 script = ExtResource("2_irskc")
+
+[node name="RandomSpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="RandomSpawnTimer" to="." method="_on_random_spawn_timer_timeout"]
