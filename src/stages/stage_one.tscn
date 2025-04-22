@@ -1,9 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbs7jf76v05oi"]
+[gd_scene load_steps=13 format=3 uid="uid://bbs7jf76v05oi"]
 
+[ext_resource type="Texture2D" uid="uid://wdxlmogungk2" path="res://assets/bluesky.png" id="1_6faxf"]
 [ext_resource type="PackedScene" uid="uid://hoctgo107djf" path="res://src/nodes/key_listener.tscn" id="1_r7fs1"]
+[ext_resource type="Script" uid="uid://ce7g46x8j76qd" path="res://src/stages/background_1.gd" id="2_rnl2t"]
 [ext_resource type="PackedScene" uid="uid://7wim01rrxevd" path="res://src/nodes/key_moving.tscn" id="2_sio3b"]
+[ext_resource type="Texture2D" uid="uid://28i76jearnn1" path="res://assets/cloudsback.png" id="3_swio0"]
+[ext_resource type="Script" uid="uid://b6eqtyj5ekawy" path="res://src/stages/background_2.gd" id="4_rnl2t"]
+[ext_resource type="Texture2D" uid="uid://c3dvc3ljjat3q" path="res://assets/mounts.png" id="4_ucyry"]
+[ext_resource type="Texture2D" uid="uid://br777c2xu7kj6" path="res://assets/hillsveryfront.png" id="5_kdr66"]
+[ext_resource type="Script" uid="uid://dtxqb1vkt5slr" path="res://src/stages/background_3.gd" id="6_kdr66"]
+[ext_resource type="Texture2D" uid="uid://devc4w0vhmhx0" path="res://assets/cloudsfront.png" id="6_um7fp"]
+[ext_resource type="Script" uid="uid://1yvyhhiuuuf5" path="res://src/stages/background_4.gd" id="8_um7fp"]
+[ext_resource type="Script" uid="uid://c6pp3rid3gkqf" path="res://src/stages/background_5.gd" id="10_karjd"]
 
 [node name="StageOne" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="background1" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, 12)
+scale = Vector2(0.816389, 0.828333)
+texture = ExtResource("1_6faxf")
+script = ExtResource("2_rnl2t")
+
+[node name="background2" type="Sprite2D" parent="Node2D"]
+position = Vector2(-2, 7.99999)
+scale = Vector2(0.748889, 0.748889)
+texture = ExtResource("3_swio0")
+script = ExtResource("4_rnl2t")
+
+[node name="background3" type="Sprite2D" parent="Node2D"]
+position = Vector2(2, 26)
+scale = Vector2(0.761111, 0.761111)
+texture = ExtResource("4_ucyry")
+script = ExtResource("6_kdr66")
+
+[node name="background4" type="Sprite2D" parent="Node2D"]
+position = Vector2(-4, -95)
+texture = ExtResource("5_kdr66")
+script = ExtResource("8_um7fp")
+
+[node name="background5" type="Sprite2D" parent="Node2D"]
+position = Vector2(-11, -48)
+scale = Vector2(0.735625, 0.712222)
+texture = ExtResource("6_um7fp")
+script = ExtResource("10_karjd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
