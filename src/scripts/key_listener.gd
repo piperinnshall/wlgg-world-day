@@ -8,6 +8,10 @@ var key_moving_queue = []
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(key_name):
 		create_moving_key()
+	
+	if key_moving_queue.front().passed and key_moving_queue.size() > 0:
+		key_moving_queue.pop_front()
+		print("popped")
 
 func create_moving_key():
 	var km_inst = key_moving.instantiate()
