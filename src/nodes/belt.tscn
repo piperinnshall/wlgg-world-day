@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://btlet0cu4v1b8"]
+
+[ext_resource type="Texture2D" uid="uid://b0elu6pseod4b" path="res://assets/arrows.webp" id="1_61swu"]
+[ext_resource type="Script" uid="uid://dyegrxk4jip67" path="res://src/scripts/belt.gd" id="2_an5l7"]
+
+[node name="Belt" type="Sprite2D"]
+texture = ExtResource("1_61swu")
+script = ExtResource("2_an5l7")
