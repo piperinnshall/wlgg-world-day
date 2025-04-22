@@ -6,6 +6,8 @@ var pos_x = 610
 var pos_y = 0
 
 func _init():
+	scale.x = 0.5
+	scale.y = 0.5
 	set_process(false)
 
 func _process(delta: float) -> void:
@@ -18,6 +20,4 @@ func _process(delta: float) -> void:
 func setup(target_frame: int):
 	global_position = Vector2(pos_x, pos_y)
 	frame = target_frame
-	scale.x = 0.5
-	scale.y = 0.5
 	set_process(true)
