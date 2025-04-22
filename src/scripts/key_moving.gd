@@ -8,7 +8,7 @@ var pos_y: float = 0
 # true if km has passed the allowed input frame
 var has_passed: bool = false
 
-var pass_limit: float = -565.0
+var pass_limit: float = -480.0
 
 func _init():
 	set_process(false)
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	global_position += Vector2(-move_speed,  0)
 	
 	if global_position.x < pass_limit and not $Timer.is_stopped():
-		print($Timer.wait_time - $Timer.time_left)
+		# print($Timer.wait_time - $Timer.time_left)
 		$Timer.stop()
 		has_passed = true
 
