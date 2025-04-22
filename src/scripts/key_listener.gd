@@ -9,9 +9,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(key_name):
 		create_moving_key()
 	
-	if key_moving_queue.front().passed and key_moving_queue.size() > 0:
-		key_moving_queue.pop_front()
-		print("popped")
+	if key_moving_queue.size() > 0:
+		if key_moving_queue.front().has_passed:
+			key_moving_queue.pop_front()
+			print("popped")
 
 func create_moving_key():
 	var km_inst = key_moving.instantiate()
@@ -19,3 +20,8 @@ func create_moving_key():
 	km_inst.setup(frame + 4)
 	
 	key_moving_queue.push_back(km_inst)
+
+func _on_random_spawn_timer_timeout() -> void:
+	create_moving_key()
+	$RandomSpawnTimer.wait_time = randf_range(0.4 ,3)
+	$RandomSpawnTimer.start()
