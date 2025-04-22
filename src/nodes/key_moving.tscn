@@ -1,13 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuauiothj2n12"]
+[gd_scene load_steps=3 format=3 uid="uid://7wim01rrxevd"]
 
-[ext_resource type="Texture2D" uid="uid://b0elu6pseod4b" path="res://assets/arrows.webp" id="1_wik0u"]
+[ext_resource type="Texture2D" uid="uid://j3re5503v5ss" path="res://assets/newSpritesGarbage.png" id="1_fac5w"]
 [ext_resource type="Script" uid="uid://b2q3obowfut2" path="res://src/scripts/key_moving.gd" id="2_l2fd5"]
 
 [node name="MovingKey" type="Sprite2D"]
-texture = ExtResource("1_wik0u")
-hframes = 4
+texture = ExtResource("1_fac5w")
+hframes = 3
 vframes = 3
-frame = 4
 script = ExtResource("2_l2fd5")
 
 [node name="Timer" type="Timer" parent="."]

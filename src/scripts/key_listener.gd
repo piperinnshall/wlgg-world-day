@@ -11,4 +11,4 @@ func _process(delta: float) -> void:
 func create_moving_key():
 	var km_inst = key_moving.instantiate()
 	get_tree().get_root().call_deferred("add_child", km_inst)
-	km_inst.setup(position.y)
+	km_inst.setup(frame + 4)

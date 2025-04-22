@@ -3,6 +3,7 @@ extends Sprite2D
 @export var move_speed: float = 3.5
 
 var pos_x = 610
+var pos_y = 0
 
 func _init():
 	set_process(false)
@@ -14,6 +15,9 @@ func _process(delta: float) -> void:
 		print($Timer.wait_time - $Timer.time_left)
 		$Timer.stop()
 
-func setup(target_y: float):
-	global_position = Vector2(pos_x, target_y)
+func setup(target_frame: int):
+	global_position = Vector2(pos_x, pos_y)
+	frame = target_frame
+	scale.x = 0.5
+	scale.y = 0.5
 	set_process(true)
