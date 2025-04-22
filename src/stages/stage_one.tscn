@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbs7jf76v05oi"]
 
 [ext_resource type="PackedScene" uid="uid://hoctgo107djf" path="res://src/nodes/key_listener.tscn" id="1_r7fs1"]
-[ext_resource type="PackedScene" uid="uid://cuauiothj2n12" path="res://src/nodes/moving_key.tscn" id="2_sio3b"]
+[ext_resource type="PackedScene" uid="uid://cuauiothj2n12" path="res://src/nodes/key_moving.tscn" id="2_sio3b"]
 
 [node name="StageOne" type="Node2D"]
 
@@ -16,9 +16,10 @@ position = Vector2(-545, 100)
 frame = 1
 key_name = "key_E"
 
-[node name="KeyListener" parent="." instance=ExtResource("1_r7fs1")]
+[node name="KeyListenerUp" parent="." instance=ExtResource("1_r7fs1")]
 position = Vector2(-545, -100)
 frame = 2
+key_name = "key_W"
 
-[node name="MovingKey" parent="." instance=ExtResource("2_sio3b")]
+[node name="KeyMoving" parent="." instance=ExtResource("2_sio3b")]
 position = Vector2(610, 0)

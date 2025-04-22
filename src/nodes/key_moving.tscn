@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cuauiothj2n12"]
 
 [ext_resource type="Texture2D" uid="uid://b0elu6pseod4b" path="res://assets/arrows.webp" id="1_wik0u"]
-[ext_resource type="Script" uid="uid://b2q3obowfut2" path="res://src/scripts/moving_key.gd" id="2_l2fd5"]
+[ext_resource type="Script" uid="uid://b2q3obowfut2" path="res://src/scripts/key_moving.gd" id="2_l2fd5"]
 
 [node name="MovingKey" type="Sprite2D"]
 texture = ExtResource("1_wik0u")
@@ -9,3 +9,8 @@ hframes = 4
 vframes = 3
 frame = 4
 script = ExtResource("2_l2fd5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
