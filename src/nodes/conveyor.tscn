@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1nbq45n5qaw5"]
+
+[ext_resource type="Script" uid="uid://c5k4iw302vgl0" path="res://src/scripts/conveyor.gd" id="1_dq033"]
+
+[node name="Conveyor" type="Sprite2D"]
+script = ExtResource("1_dq033")
