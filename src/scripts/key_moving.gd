@@ -23,8 +23,8 @@ func _process(delta: float) -> void:
 func setup(target_frame: int):
 	global_position = Vector2(pos_x, pos_y)
 	frame = target_frame
-	scale.x = 0.3
-	scale.y = 0.3
+	scale.x = 0.6
+	scale.y = 0.6
 	
 	set_process(true)
 	
