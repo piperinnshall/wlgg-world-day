@@ -1,22 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbs7jf76v05oi"]
+[gd_scene load_steps=3 format=3 uid="uid://bbs7jf76v05oi"]
 
 [ext_resource type="PackedScene" uid="uid://hoctgo107djf" path="res://src/nodes/key_listener.tscn" id="1_r7fs1"]
+[ext_resource type="PackedScene" uid="uid://cuauiothj2n12" path="res://src/nodes/moving_key.tscn" id="2_sio3b"]
 
 [node name="StageOne" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="KeyListenerLeft" parent="." instance=ExtResource("1_r7fs1")]
-position = Vector2(-545, 4)
+position = Vector2(-545, 0)
 key_name = "key_Q"
 
-[node name="KeyListenerUp" parent="." instance=ExtResource("1_r7fs1")]
-position = Vector2(-519, -74)
-offset = Vector2(-25, -11)
-frame = 2
-key_name = "key_W"
-
 [node name="KeyListenerDown" parent="." instance=ExtResource("1_r7fs1")]
-position = Vector2(-545, 99)
+position = Vector2(-545, 100)
 frame = 1
 key_name = "key_E"
+
+[node name="KeyListener" parent="." instance=ExtResource("1_r7fs1")]
+position = Vector2(-545, -100)
+frame = 2
+
+[node name="MovingKey" parent="." instance=ExtResource("2_sio3b")]
+position = Vector2(610, 0)

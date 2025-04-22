@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://hoctgo107djf"]
 
 [ext_resource type="Texture2D" uid="uid://b0elu6pseod4b" path="res://assets/arrows.webp" id="1_610d0"]
-[ext_resource type="Script" uid="uid://b3ol2xekigwkq" path="res://src/nodes/key_listener.gd" id="2_irskc"]
+[ext_resource type="Script" uid="uid://b3ol2xekigwkq" path="res://src/scripts/key_listener.gd" id="2_irskc"]
 
 [node name="KeyListener" type="Sprite2D"]
 texture = ExtResource("1_610d0")
