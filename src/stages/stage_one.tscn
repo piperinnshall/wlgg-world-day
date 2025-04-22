@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbs7jf76v05oi"]
+[gd_scene load_steps=5 format=3 uid="uid://bbs7jf76v05oi"]
 
 [ext_resource type="PackedScene" uid="uid://hoctgo107djf" path="res://src/nodes/key_listener.tscn" id="1_r7fs1"]
 [ext_resource type="PackedScene" uid="uid://yopk35fnni34" path="res://src/nodes/background.tscn" id="1_sio3b"]
+[ext_resource type="Texture2D" uid="uid://dl16rbdm7q2vb" path="res://assets/conv.png" id="3_4dpq8"]
 [ext_resource type="PackedScene" uid="uid://c1nbq45n5qaw5" path="res://src/nodes/conveyor.tscn" id="3_pl84b"]
 
 [node name="StageOne" type="Node2D"]
@@ -12,6 +13,9 @@ scale = Vector2(0.75, 0.75)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Conveyor" parent="." instance=ExtResource("3_pl84b")]
+position = Vector2(122, 36)
+scale = Vector2(0.795556, 0.795556)
+texture = ExtResource("3_4dpq8")
 
 [node name="KeyListenerLeft" parent="." instance=ExtResource("1_r7fs1")]
 position = Vector2(-545, 0)
