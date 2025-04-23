@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctdg5sivhrw2u"]
+[gd_scene load_steps=4 format=3 uid="uid://drhpflq5cbj5h"]
 
-[ext_resource type="Script" uid="uid://vln2xwyp1oa8" path="res://src/scripts/level_menu.gd" id="1_mveay"]
-[ext_resource type="Theme" uid="uid://cba10ecg1v6ts" path="res://assets/buttontheme.tres" id="2_4y34n"]
+[ext_resource type="Script" path="res://src/scripts/level_menu.gd" id="1_mveay"]
+[ext_resource type="Theme" uid="uid://c8rdncoxscxbx" path="res://assets/buttontheme.tres" id="2_4y34n"]
 [ext_resource type="Texture2D" uid="uid://wdxlmogungk2" path="res://assets/bluesky.png" id="2_5805j"]
 
 [node name="LevelMenu" type="Control"]

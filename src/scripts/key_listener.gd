@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @onready var key_moving = preload("res://src/nodes/key_moving.tscn")
+@onready var score_text = preload("res://src/nodes/score_press_text.tscn")
 
 @export var key_up: String = ""
 @export var key_down: String = ""
@@ -43,6 +44,11 @@ func _process(delta: float) -> void:
 			
 			#TODO: Animations
 			key_to_pop.queue_free()
+			
+			var st_instance = score_text.instantiate() as Node2D
+			get_tree().get_root().call_deferred("add_child", st_instance)
+			st_instance.global_position.x = global_position.x - 50
+			st_instance.global_position.y = global_position.y - 200
 
 func create_moving_key():
 	var km_inst = key_moving.instantiate()
