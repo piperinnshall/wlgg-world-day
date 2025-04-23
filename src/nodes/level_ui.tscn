@@ -12,8 +12,18 @@ script = ExtResource("1_tb1lm")
 unique_name_in_owner = true
 offset_left = 24.0
 offset_top = 20.0
-offset_right = 279.0
-offset_bottom = 139.0
+offset_right = 481.0
+offset_bottom = 66.0
 theme_override_fonts/normal_font = ExtResource("2_0s7e0")
 theme_override_font_sizes/normal_font_size = 55
 text = "0 Score"
+
+[node name="ComboLabel" type="RichTextLabel" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 510.0
+offset_bottom = 113.0
+theme_override_fonts/normal_font = ExtResource("2_0s7e0")
+theme_override_font_sizes/normal_font_size = 55
+text = "0 Combo"

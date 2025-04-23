@@ -26,6 +26,12 @@ func _process(delta: float) -> void:
 	if key_moving_queue.size() > 0:
 		if key_moving_queue.front().has_passed:
 			key_moving_queue.pop_front()
+			
+			var st_instance = score_text.instantiate() as Node2D
+			get_tree().get_root().call_deferred("add_child", st_instance)
+			st_instance.set_text("MISS")
+			st_instance.global_position = global_position - Vector2(100, 200)
+			Signals.reset_combo.emit()
 	
 		# If key is pressed pop from queue
 		if Input.is_action_just_pressed(key_up) or Input.is_action_just_pressed(key_down):
@@ -38,17 +44,22 @@ func _process(delta: float) -> void:
 			if distance_from_passed < perfect_limit:
 				Signals.increment_score.emit(perfect_score)
 				score_text_str = "PERFECT"
+				Signals.increment_combo.emit()
 			elif distance_from_passed < great_limit:
 				Signals.increment_score.emit(great_score)
 				score_text_str = "GREAT"
+				Signals.increment_combo.emit()
 			elif distance_from_passed < good_limit:
 				Signals.increment_score.emit(good_score)
 				score_text_str = "GOOD"
+				Signals.increment_combo.emit()
 			elif distance_from_passed < okay_limit:
 				Signals.increment_score.emit(okay_score)	
 				score_text_str = "OKAY"
+				Signals.increment_combo.emit()
 			else:
 				score_text_str = "MISS"
+				Signals.reset_combo.emit()
 			
 			#TODO: Animations
 			key_to_pop.queue_free()
