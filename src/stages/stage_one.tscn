@@ -22,7 +22,7 @@ scale = Vector2(0.795556, 0.795556)
 texture = ExtResource("3_4dpq8")
 
 [node name="KeyListener" parent="." instance=ExtResource("1_r7fs1")]
-position = Vector2(-210, 0)
+position = Vector2(-210, -5)
 offset = Vector2(-22, 2)
 frame = 3
 key_up = "key_Q"
