@@ -17,6 +17,7 @@ script = ExtResource("2_s3qma")
 
 [node name="BGClouds" type="Sprite2D" parent="."]
 position = Vector2(50, 65)
+scale = Vector2(1.13, 1.13)
 texture = ExtResource("2_gyn1g")
 script = ExtResource("2_s3qma")
 speed = 0.2
