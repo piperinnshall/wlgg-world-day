@@ -26,9 +26,5 @@ texture = ExtResource("3_4dpq8")
 position = Vector2(-210, -5)
 offset = Vector2(-22, 2)
 frame = 3
-key_up = "key_Q"
-key_down = "key_E"
 
 [node name="LevelEditor" parent="." instance=ExtResource("6_17kfj")]
-
-[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
