@@ -33,22 +33,30 @@ func _process(delta: float) -> void:
 		
 			var distance_from_passed = abs(key_to_pop.pass_limit - key_to_pop.global_position.x)		
 			
+			var score_text_str: String = ""
+			
 			if distance_from_passed < perfect_limit:
 				Signals.increment_score.emit(perfect_score)
+				score_text_str = "PERFECT"
 			elif distance_from_passed < great_limit:
 				Signals.increment_score.emit(great_score)
+				score_text_str = "GREAT"
 			elif distance_from_passed < good_limit:
 				Signals.increment_score.emit(good_score)
+				score_text_str = "GOOD"
 			elif distance_from_passed < okay_limit:
 				Signals.increment_score.emit(okay_score)	
+				score_text_str = "OKAY"
+			else:
+				score_text_str = "MISS"
 			
 			#TODO: Animations
 			key_to_pop.queue_free()
 			
 			var st_instance = score_text.instantiate() as Node2D
 			get_tree().get_root().call_deferred("add_child", st_instance)
-			st_instance.global_position.x = global_position.x - 50
-			st_instance.global_position.y = global_position.y - 200
+			st_instance.set_text(score_text_str)
+			st_instance.global_position = global_position - Vector2(100, 200)
 
 func create_moving_key():
 	var km_inst = key_moving.instantiate()
