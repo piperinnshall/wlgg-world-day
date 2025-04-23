@@ -69,7 +69,7 @@ func _process(delta: float) -> void:
 			st_instance.set_text(score_text_str)
 			st_instance.global_position = global_position - Vector2(100, 200)
 
-func create_moving_key():
+func create_moving_key(button_name: String):
 	var km_inst = key_moving.instantiate()
 	km_inst.z_index = 30
 	get_tree().get_root().call_deferred("add_child", km_inst)
@@ -78,6 +78,6 @@ func create_moving_key():
 	key_moving_queue.push_back(km_inst)
 
 func _on_random_spawn_timer_timeout() -> void:
-	create_moving_key()
+	#create_moving_key()
 	$RandomSpawnTimer.wait_time = randf_range(0.4 ,3)
 	$RandomSpawnTimer.start()
