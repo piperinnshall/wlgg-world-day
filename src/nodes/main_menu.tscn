@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d4ilg0nbn3dj"]
+[gd_scene load_steps=11 format=3 uid="uid://d4ilg0nbn3dj"]
 
 [ext_resource type="Script" uid="uid://u3i20ik02q3g" path="res://src/main_menu.gd" id="1_taqfo"]
+[ext_resource type="Texture2D" uid="uid://b0r6we4k8dgqa" path="res://assets/garbageDump.png" id="2_fag5v"]
 [ext_resource type="Script" uid="uid://c0srd845qul7i" path="res://src/scripts/margin_container_size.gd" id="2_hx3uu"]
 [ext_resource type="Theme" uid="uid://c8rdncoxscxbx" path="res://assets/buttontheme.tres" id="2_phhmh"]
 [ext_resource type="FontFile" uid="uid://hq1cuctk4xfx" path="res://assets/font/NewHiScore.ttf" id="4_ce3t7"]
-[ext_resource type="Script" uid="uid://ojgoeea0cmr1" path="res://src/scripts/button_press_text_change.gd" id="5_151an"]
+[ext_resource type="Script" uid="uid://cliemi4hryfq" path="res://src/scripts/rich_text_label_main.gd" id="6_fag5v"]
 [ext_resource type="Script" uid="uid://b2dxfhk5a6o5h" path="res://src/scripts/button_quit_text.gd" id="6_u0oob"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3t7"]
@@ -21,6 +22,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_taqfo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577.111, 323.25)
+scale = Vector2(0.730555, 0.730556)
+texture = ExtResource("2_fag5v")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -64,7 +70,7 @@ text = "PLAY"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("5_151an")
+script = ExtResource("6_fag5v")
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
