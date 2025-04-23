@@ -8,7 +8,8 @@ var pos_y: float = 0
 # true if km has passed the allowed input frame
 var has_passed: bool = false
 
-var pass_limit: float = -480.0
+# set the point for a failed press
+var pass_limit: float = -210.0
 
 func _init():
 	set_process(false)
