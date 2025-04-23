@@ -3,8 +3,8 @@ extends Sprite2D
 @onready var key_moving = preload("res://src/nodes/key_moving.tscn")
 @onready var score_text = preload("res://src/nodes/score_press_text.tscn")
 
-@export var key_up: String = ""
-@export var key_down: String = ""
+@export var key_up: String = "key_Q"
+@export var key_down: String = "key_E"
 
 var key_moving_queue = []
 
@@ -20,7 +20,14 @@ var great_score: float = 100
 var good_score: float = 50
 var okay_score: float = 20
 
+func _ready() -> void:
+	Signals.create_moving_key.connect(create_moving_key)
+
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(key_up):
+		Signals.key_listener_press.emit(key_down, 0)
+	elif Input.is_action_just_pressed(key_down):
+		Signals.key_listener_press.emit(key_down, 1)
 	
 	# Make sure the array of keys is not empty
 	if key_moving_queue.size() > 0:
@@ -83,15 +90,17 @@ func _process(delta: float) -> void:
 			st_instance.set_text(score_text_str)
 			st_instance.global_position = global_position - Vector2(100, 200)
 
-func create_moving_key():
+func create_moving_key(button_name: String):
 	var km_inst = key_moving.instantiate()
 	km_inst.z_index = 30
+	if button_name == key_up:
+		km_inst.setup(3)
+	elif button_name == key_down:
+		km_inst.setup(1)
 	get_tree().get_root().call_deferred("add_child", km_inst)
-	km_inst.setup(randi() % 9)
-	
 	key_moving_queue.push_back(km_inst)
 
 func _on_random_spawn_timer_timeout() -> void:
-	create_moving_key()
+	#create_moving_key()
 	$RandomSpawnTimer.wait_time = randf_range(0.4 ,3)
 	$RandomSpawnTimer.start()
