@@ -32,7 +32,8 @@ func _process(delta: float) -> void:
 	# Make sure the array of keys is not empty
 	if key_moving_queue.size() > 0:
 		if key_moving_queue.front().has_passed:
-			key_moving_queue.pop_front()
+			var key_to_pop = key_moving_queue.pop_front()
+			key_to_pop.move_speed = 200
 			
 			var st_instance = score_text.instantiate() as Node2D
 			get_tree().get_root().call_deferred("add_child", st_instance)
@@ -45,58 +46,75 @@ func _process(delta: float) -> void:
 			
 	
 		# If key is pressed pop from queue
-		if Input.is_action_just_pressed(key_up) or Input.is_action_just_pressed(key_down):
-			var key_to_pop = key_moving_queue.pop_front()
-		
-			var distance_from_passed = abs(key_to_pop.pass_limit - key_to_pop.global_position.x)		
+		if Input.is_action_just_pressed(key_up):
+			do_key_pressed(key_up)
+		elif Input.is_action_just_pressed(key_down):
+			do_key_pressed(key_down)
 			
-			var score_text_str: String = ""
-			
-			if distance_from_passed < perfect_limit:
-				Signals.increment_score.emit(perfect_score)
-				score_text_str = "PERFECT"
-				Signals.increment_combo.emit()
-				
-				# Find the Camera2D and trigger shake
-				#var camera := get_node("../Camera2D")
-				#if camera:
-					#camera.trigger_shake()
 
-				
-			elif distance_from_passed < great_limit:
-				Signals.increment_score.emit(great_score)
-				score_text_str = "GREAT"
-				Signals.increment_combo.emit()
-			elif distance_from_passed < good_limit:
-				Signals.increment_score.emit(good_score)
-				score_text_str = "GOOD"
-				Signals.increment_combo.emit()
-			elif distance_from_passed < okay_limit:
-				Signals.increment_score.emit(okay_score)	
-				score_text_str = "OKAY"
-				Signals.increment_combo.emit()
-			else:
-				var camera := get_node("../Camera2D")
-				if camera:
-					camera.trigger_shake()
-				score_text_str = "MISS"
-				Signals.reset_combo.emit()
-			
-			#TODO: Animations
-			key_to_pop.queue_free()
-			
-			var st_instance = score_text.instantiate() as Node2D
-			get_tree().get_root().call_deferred("add_child", st_instance)
-			st_instance.set_text(score_text_str)
-			st_instance.global_position = global_position - Vector2(100, 200)
+func do_key_pressed(key):
+	var key_to_pop = key_moving_queue.pop_front()
+	
+	var distance_from_passed = abs(key_to_pop.pass_limit - key_to_pop.global_position.x)		
+	
+	var score_text_str: String = ""
+	
+	if key_to_pop.this_button_name != key:
+		var camera := get_node("../Camera2D")
+		if camera:
+			camera.trigger_shake()
+		score_text_str = "MISS"
+		key_to_pop.move_speed = 200
+		Signals.reset_combo.emit()
+	else:
+		if distance_from_passed < perfect_limit:
+			Signals.increment_score.emit(perfect_score)
+			score_text_str = "PERFECT"
+			Signals.increment_combo.emit()
+			send_direction(key_to_pop.this_button_name, key_to_pop)
+		elif distance_from_passed < great_limit:
+			Signals.increment_score.emit(great_score)
+			score_text_str = "GREAT"
+			Signals.increment_combo.emit()
+			send_direction(key_to_pop.this_button_name, key_to_pop)
+		elif distance_from_passed < good_limit:
+			Signals.increment_score.emit(good_score)
+			score_text_str = "GOOD"
+			Signals.increment_combo.emit()
+			send_direction(key_to_pop.this_button_name, key_to_pop)
+		elif distance_from_passed < okay_limit:
+			Signals.increment_score.emit(okay_score)	
+			score_text_str = "OKAY"
+			Signals.increment_combo.emit()
+			send_direction(key_to_pop.this_button_name, key_to_pop)
+		else:
+			var camera := get_node("../Camera2D")
+			if camera:
+				camera.trigger_shake()
+			score_text_str = "MISS"
+			key_to_pop.move_speed = 200
+			Signals.reset_combo.emit()
+	
+	var st_instance = score_text.instantiate() as Node2D
+	get_tree().get_root().call_deferred("add_child", st_instance)
+	st_instance.set_text(score_text_str)
+	st_instance.global_position = global_position - Vector2(100, 200)
+
+func send_direction(button_name: String, key_to_pop):
+	var vertical_velocity = 200.0  # Set your desired speed here
+	
+	if button_name == "key_Q": # Up
+		key_to_pop.vertical_speed = -vertical_velocity  # Move upward
+	else: # down
+		key_to_pop.vertical_speed = vertical_velocity   # Move downward
 
 func create_moving_key(button_name: String):
 	var km_inst = key_moving.instantiate()
 	km_inst.z_index = 30
 	if button_name == key_up:
-		km_inst.setup(3)
+		km_inst.setup(1, button_name) # Glass
 	elif button_name == key_down:
-		km_inst.setup(1)
+		km_inst.setup(2, button_name) # Recycling
 	get_tree().get_root().call_deferred("add_child", km_inst)
 	key_moving_queue.push_back(km_inst)
 

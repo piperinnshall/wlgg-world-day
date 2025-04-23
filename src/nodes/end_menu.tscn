@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://do4wdrghuo66q"]
+[gd_scene load_steps=11 format=3 uid="uid://b1tyouxgi5acf"]
 
 [ext_resource type="Script" uid="uid://byc4fupt3uisc" path="res://src/scripts/end_menu.gd" id="1_e6kkl"]
 [ext_resource type="Texture2D" uid="uid://34i6y1x62hli" path="res://assets/Clean.png" id="1_hofor"]
@@ -96,8 +96,8 @@ script = ExtResource("6_32yd1")
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/MenuButton" to="MarginContainer/VBoxContainer/MenuButton/RichTextLabel" method="_on_menu_button_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/MenuButton" to="MarginContainer/VBoxContainer/MenuButton/RichTextLabel" method="_on_play_button_button_down"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/MenuButton" to="MarginContainer/VBoxContainer/MenuButton/RichTextLabel" method="_on_menu_button_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/MenuButton" to="MarginContainer/VBoxContainer/MenuButton/RichTextLabel" method="_on_play_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/MenuButton" to="MarginContainer/VBoxContainer/MenuButton/RichTextLabel" method="_on_menu_button_button_up"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButton" to="MarginContainer/VBoxContainer/MenuButton/RichTextLabel" method="_on_play_button_pressed"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Quit" to="MarginContainer/VBoxContainer/Quit/RichTextLabel" method="_on_quit_button_down"]
