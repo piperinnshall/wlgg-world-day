@@ -1,9 +1,15 @@
 extends Node2D
 
 # Set this to true before the game to add levels
-const in_editor: bool = true
+const in_editor: bool = false
+
 var level_name_current = "WHIMSICAL_TOWN"
-# Each level has an array km times
+
+# How long it takes for the key to reach the critical spot
+var km_move_time: float = 1.625
+var km_output_arr = [[], []]
+
+# Each level has an array km_times
 # km times stores the time to spawn the km
 var level_info = {
 	"WHIMSICAL_TOWN" = {
@@ -37,9 +43,11 @@ func _ready() -> void:
 			counter += 1
 
 func key_listener_press(button_name: String, array_num: int):
-	print(array_num)
+	km_output_arr[array_num].append($MusicPlayer.get_playback_position()- km_move_time)
 
 func spawn_moving_key(button_name: String, delay: float):
 	await get_tree().create_timer(delay).timeout
 	Signals.create_moving_key.emit(button_name)
-	
+
+func _on_music_player_finished() -> void:
+	print(km_output_arr)
