@@ -9,10 +9,10 @@ extends Sprite2D
 var key_moving_queue = []
 
 #  Score when distance_from_passed is less than the limit 
-var perfect_limit: float = 30
+var perfect_limit: float = 10
 var great_limit: float = 50
-var good_limit: float = 60
-var okay_limit: float = 80
+var good_limit: float = 70
+var okay_limit: float = 100
 # Else miss the key press
 
 var perfect_score: float = 250
@@ -103,22 +103,17 @@ func do_key_pressed(key):
 func send_direction(button_name: String, key_to_pop):
 	var vertical_velocity = 200.0  # Set your desired speed here
 	
-	if button_name == "key_Q": # Up
+	if button_name == "key_Q": # Up Glass
 		key_to_pop.vertical_speed = -vertical_velocity  # Move upward
-	else: # down
+	else: # Down Recycling
 		key_to_pop.vertical_speed = vertical_velocity   # Move downward
 
 func create_moving_key(button_name: String):
 	var km_inst = key_moving.instantiate()
 	km_inst.z_index = 30
 	if button_name == key_up:
-		km_inst.setup(1, button_name) # Glass
+		km_inst.setup(2, button_name) # Q Up Glass
 	elif button_name == key_down:
-		km_inst.setup(2, button_name) # Recycling
+		km_inst.setup(1, button_name) # Q Down Recycling
 	get_tree().get_root().call_deferred("add_child", km_inst)
 	key_moving_queue.push_back(km_inst)
-
-func _on_random_spawn_timer_timeout() -> void:
-	#create_moving_key()
-	$RandomSpawnTimer.wait_time = randf_range(0.4 ,3)
-	$RandomSpawnTimer.start()

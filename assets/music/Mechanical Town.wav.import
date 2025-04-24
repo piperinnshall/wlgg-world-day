@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnqf7et0w2blr"
+path="res://.godot/imported/Mechanical Town.wav-b6c6cffab87d846ad9c8e90e4de2c3ec.sample"
+
+[deps]
+
+source_file="res://assets/music/Mechanical Town.wav"
+dest_files=["res://.godot/imported/Mechanical Town.wav-b6c6cffab87d846ad9c8e90e4de2c3ec.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

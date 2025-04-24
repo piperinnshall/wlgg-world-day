@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4ilg0nbn3dj"]
+
+[ext_resource type="Script" uid="uid://u3i20ik02q3g" path="res://src/scripts/main_menu.gd" id="1_uc5nx"]
+[ext_resource type="Texture2D" uid="uid://b0r6we4k8dgqa" path="res://assets/garbageDump.png" id="2_rh86a"]
+[ext_resource type="Theme" uid="uid://c8rdncoxscxbx" path="res://assets/buttontheme.tres" id="3_8e76j"]
+[ext_resource type="FontFile" uid="uid://hq1cuctk4xfx" path="res://assets/font/NewHiScore.ttf" id="4_liwee"]
+[ext_resource type="Script" uid="uid://cliemi4hryfq" path="res://src/scripts/rich_text_label_main.gd" id="6_c7bif"]
+[ext_resource type="Script" uid="uid://b2dxfhk5a6o5h" path="res://src/scripts/button_quit_text.gd" id="7_q57j4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3t7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0oob"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_151an"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uc5nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_rh86a")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
+offset_left = -231.483
+offset_top = -257.551
+offset_right = 254.517
+offset_bottom = -98.5506
+theme = ExtResource("3_8e76j")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_liwee")
+theme_override_font_sizes/normal_font_size = 40
+text = "Press E to send the Glass Down, and Q to send the Plastic Up"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.5
+offset_top = -25.0
+offset_right = 19.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.595, 5.595)
+pivot_offset = Vector2(19.5479, 25.0151)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_8e76j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ce3t7")
+text = " "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PlayButton"]
+layout_mode = 0
+offset_left = 1.57687
+offset_top = -0.3674
+offset_right = 41.5769
+offset_bottom = 18.6326
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme_override_fonts/normal_font = ExtResource("4_liwee")
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u0oob")
+text = "PLAY"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_c7bif")
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_8e76j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u0oob")
+text = "          "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Quit"]
+layout_mode = 0
+offset_left = 2.47053
+offset_top = -0.200287
+offset_right = 42.4705
+offset_bottom = 18.7997
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_liwee")
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxEmpty_151an")
+text = "QUIT"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_q57j4")
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/PlayButton" to="MarginContainer/VBoxContainer/PlayButton/RichTextLabel" method="_on_play_button_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/PlayButton" to="MarginContainer/VBoxContainer/PlayButton/RichTextLabel" method="_on_play_button_button_up"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="MarginContainer/VBoxContainer/PlayButton/RichTextLabel" method="_on_play_button_pressed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Quit" to="MarginContainer/VBoxContainer/Quit/RichTextLabel" method="_on_quit_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Quit" to="MarginContainer/VBoxContainer/Quit/RichTextLabel" method="_on_quit_button_up"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

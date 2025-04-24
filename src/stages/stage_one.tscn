@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://hoctgo107djf" path="res://src/nodes/key_listener.tscn" id="1_r7fs1"]
 [ext_resource type="PackedScene" uid="uid://yopk35fnni34" path="res://src/nodes/background.tscn" id="1_sio3b"]
+[ext_resource type="PackedScene" uid="uid://dt0qeqepexisu" path="res://src/nodes/bins.tscn" id="2_pay75"]
 [ext_resource type="PackedScene" uid="uid://bs1vrlcj12lv5" path="res://src/nodes/level_ui.tscn" id="2_qd81k"]
-[ext_resource type="Texture2D" uid="uid://dl16rbdm7q2vb" path="res://assets/conv.png" id="3_4dpq8"]
 [ext_resource type="Script" uid="uid://d16xboscwxy8c" path="res://src/scripts/camera_2d_shake.gd" id="3_17kfj"]
 [ext_resource type="PackedScene" uid="uid://c1nbq45n5qaw5" path="res://src/nodes/conveyor.tscn" id="3_pl84b"]
 [ext_resource type="PackedScene" uid="uid://cqkfo5tp4kvnn" path="res://src/nodes/level_editor.tscn" id="6_17kfj"]
@@ -11,22 +11,22 @@
 [node name="StageOne" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_sio3b")]
-scale = Vector2(0.75, 0.75)
+z_index = -100
+
+[node name="Bins" parent="." instance=ExtResource("2_pay75")]
 
 [node name="LevelUI" parent="." instance=ExtResource("2_qd81k")]
-position = Vector2(303.46, 28.1814)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 script = ExtResource("3_17kfj")
 
 [node name="Conveyor" parent="." instance=ExtResource("3_pl84b")]
-position = Vector2(122, 36)
-scale = Vector2(0.795556, 0.795556)
-texture = ExtResource("3_4dpq8")
+position = Vector2(1160, 540)
+scale = Vector2(1.3, 1.3)
 
 [node name="KeyListener" parent="." instance=ExtResource("1_r7fs1")]
-position = Vector2(-210, -5)
-offset = Vector2(-22, 2)
-frame = 3
+z_index = 5
+position = Vector2(641, 490)
 
 [node name="LevelEditor" parent="." instance=ExtResource("6_17kfj")]

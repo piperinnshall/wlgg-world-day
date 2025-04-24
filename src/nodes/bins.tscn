@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt0qeqepexisu"]
+
+[ext_resource type="Texture2D" uid="uid://c2txl6omacn3s" path="res://assets/binsback.png" id="1_kj25d"]
+[ext_resource type="Texture2D" uid="uid://dhcjdpsw53qns" path="res://assets/binsfront.png" id="2_vdxw8"]
+[ext_resource type="FontFile" uid="uid://hq1cuctk4xfx" path="res://assets/font/NewHiScore.ttf" id="3_rj4vd"]
+
+[node name="Bins" type="Node2D"]
+
+[node name="PlasticBin" type="Node2D" parent="."]
+position = Vector2(180, 150)
+rotation = 2.53073
+scale = Vector2(2, 2)
+
+[node name="PlasticBinBack" type="Sprite2D" parent="PlasticBin"]
+texture = ExtResource("1_kj25d")
+hframes = 2
+vframes = 2
+
+[node name="PlasticBinFront" type="Sprite2D" parent="PlasticBin"]
+z_index = 50
+texture = ExtResource("2_vdxw8")
+hframes = 2
+vframes = 2
+
+[node name="GlassBin" type="Node2D" parent="."]
+position = Vector2(180, 950)
+rotation = 0.959931
+scale = Vector2(2, 2)
+
+[node name="GlassBinBack" type="Sprite2D" parent="GlassBin"]
+z_index = 10
+position = Vector2(-0.573608, 0.819153)
+texture = ExtResource("1_kj25d")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="GlassBinFront" type="Sprite2D" parent="GlassBin"]
+z_index = 50
+texture = ExtResource("2_vdxw8")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="PlasticText" type="Node2D" parent="."]
+position = Vector2(550, 0)
+
+[node name="Q" type="RichTextLabel" parent="PlasticText"]
+offset_right = 597.0
+offset_bottom = 466.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_rj4vd")
+theme_override_font_sizes/normal_font_size = 500
+text = "Q"
+
+[node name="GlassText" type="Node2D" parent="."]
+position = Vector2(550, 600)
+
+[node name="E" type="RichTextLabel" parent="GlassText"]
+offset_right = 597.0
+offset_bottom = 441.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_rj4vd")
+theme_override_font_sizes/normal_font_size = 500
+text = "E"

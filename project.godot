@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="wlgg-world-day"
-run/main_scene="uid://bbs7jf76v05oi"
+run/main_scene="uid://d4ilg0nbn3dj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Signals="*res://src/nodes/signals.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [input]
 

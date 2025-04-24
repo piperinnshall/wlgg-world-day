@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://dyegrxk4jip67" path="res://src/scripts/belt.gd" id="2_an5l7"]
 
 [node name="Belt" type="Sprite2D"]
-position = Vector2(280.556, 56.875)
 scale = Vector2(0.778056, 0.778055)
 texture = ExtResource("1_an5l7")
 script = ExtResource("2_an5l7")

@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 
 func spawn_belt() -> void:
 	var b = belt_scene.instantiate()
-	b.z_index = 20
+	b.z_index = 10
 	get_tree().get_root().call_deferred("add_child", b)
 	b.setup()
 	last_belt = b
@@ -25,7 +25,7 @@ func propagate():
 	var pos_x = belt_script.SPAWN_POSITION.x
 	while pos_x >= belt_script.FINAL_POSITION:
 		var b = belt_scene.instantiate()
-		b.z_index = 20
+		b.z_index = 10
 		get_tree().get_root().call_deferred("add_child", b)
 		b.setup()
 		b.global_position.x = pos_x

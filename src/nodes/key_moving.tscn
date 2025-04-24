@@ -1,22 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://7wim01rrxevd"]
 
-[ext_resource type="Texture2D" uid="uid://j3re5503v5ss" path="res://assets/newSpritesGarbage.png" id="1_fac5w"]
+[ext_resource type="Texture2D" uid="uid://hj8xuip72xkb" path="res://assets/finalBagSprites.png" id="1_fac5w"]
 [ext_resource type="Script" uid="uid://b2q3obowfut2" path="res://src/scripts/key_moving.gd" id="2_l2fd5"]
 
-[node name="MovingKey" type="Sprite2D"]
+[node name="KeyMoving" type="Sprite2D"]
 texture = ExtResource("1_fac5w")
 hframes = 3
-vframes = 3
-frame = 8
 script = ExtResource("2_l2fd5")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 
 [node name="DestroyTimer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 

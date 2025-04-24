@@ -1,15 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://hoctgo107djf"]
 
-[ext_resource type="Texture2D" uid="uid://b0elu6pseod4b" path="res://assets/arrows.webp" id="1_610d0"]
+[ext_resource type="Texture2D" uid="uid://hj8xuip72xkb" path="res://assets/finalBagSprites.png" id="1_irskc"]
 [ext_resource type="Script" uid="uid://b3ol2xekigwkq" path="res://src/scripts/key_listener.gd" id="2_irskc"]
 
 [node name="KeyListener" type="Sprite2D"]
-texture = ExtResource("1_610d0")
-hframes = 4
-vframes = 3
+modulate = Color(1, 1, 1, 0.733333)
+texture = ExtResource("1_irskc")
+hframes = 3
 script = ExtResource("2_irskc")
-
-[node name="RandomSpawnTimer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="RandomSpawnTimer" to="." method="_on_random_spawn_timer_timeout"]
