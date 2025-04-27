@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var move_speed: float = 3.5
+@export var move_speed: float = 8.5
 
 static var SPAWN_POSITION: Vector2 = Vector2(1920 + 600, 540)
 static var FINAL_POSITION: float = 1070.0

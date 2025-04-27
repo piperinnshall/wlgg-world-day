@@ -29,6 +29,7 @@ func _ready() -> void:
 		var km_times_arr = str_to_var(km_times)
 		
 		var counter: int = 0
+		
 		for key in km_times_arr:
 			
 			var button_name: String = ""
@@ -51,5 +52,4 @@ func spawn_moving_key(button_name: String, delay: float):
 	Signals.create_moving_key.emit(button_name)
 
 func _on_music_player_finished() -> void:
-	print("test")
 	get_tree().change_scene_to_file("res://src/stages/end_menu.tscn")

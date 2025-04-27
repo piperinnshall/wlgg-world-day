@@ -29,11 +29,10 @@ texture = ExtResource("2_rh86a")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
 offset_left = -231.483
-offset_top = -257.551
+offset_top = 132.449
 offset_right = 254.517
-offset_bottom = -98.5506
+offset_bottom = 291.449
 theme = ExtResource("3_8e76j")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_liwee")
 theme_override_font_sizes/normal_font_size = 40
 text = "Press E to send the Glass Down, and Q to send the Plastic Up"

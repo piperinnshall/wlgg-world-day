@@ -23,7 +23,7 @@ hframes = 2
 vframes = 2
 
 [node name="GlassBin" type="Node2D" parent="."]
-position = Vector2(180, 950)
+position = Vector2(180, 900)
 rotation = 0.959931
 scale = Vector2(2, 2)
 
